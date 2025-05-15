@@ -1,15 +1,19 @@
 "use client";
 
-import { Anchor, Group, PasswordInput, Text } from "@mantine/core";
+import { Anchor, Flex, PasswordInput } from "@mantine/core";
+// import { InputHTMLAttributes } from "react";
+
+// type ForgotPasswordInputProps = InputHTMLAttributes<HTMLInputElement>;
 
 export function ForgotPasswordInput() {
   return (
     <>
-      <Group justify="space-between" mb={5}>
-        <Text component="label" htmlFor="your-password" size="sm" fw={500}>
-          Senha
-        </Text>
-
+      <Flex justify="space-between" direction="column">
+        <PasswordInput
+          placeholder="Sua senha"
+          id="your-password"
+          label="Senha"
+        />
         <Anchor
           href="#"
           onClick={(event) => event.preventDefault()}
@@ -19,8 +23,8 @@ export function ForgotPasswordInput() {
         >
           Esqueceu sua senha?
         </Anchor>
-      </Group>
-      <PasswordInput placeholder="Sua senha" id="your-password" />
+        <input />
+      </Flex>
     </>
   );
 }
