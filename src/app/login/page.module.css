@@ -39,6 +39,8 @@
   flex-direction: column;
   gap: 32px;
   grid-row-start: 2;
+  width: 50%;
+  max-width: 300px;
 }
 
 .main ol {
