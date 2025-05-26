@@ -1,5 +1,5 @@
 "use client";
-import { SimpleGrid } from "@mantine/core";
+import { Button, SimpleGrid } from "@mantine/core";
 import styles from "./page.module.css";
 import { format } from "date-fns";
 import { LiturgicalColor } from "./interfaces/LiturgicalColor";
@@ -59,15 +59,32 @@ export default function Home() {
             ))}
             {fakeData.map((item) => (
               <div
-                className={colorClasses[item.color] + " " + styles.dayItem}
                 key={item.day}
-                onClick={() => {
-                  open();
-                  setSelectdId(item.day);
-                }}
+                className={colorClasses[item.color] + " " + styles.dayItem}
+                style={{ width: "100%" }}
               >
-                {item.day}
+                <Button
+                  onClick={() => {
+                    open();
+                    setSelectdId(item.day);
+                  }}
+                  fullWidth
+                  variant="transparent"
+                >
+                  {item.day}
+                </Button>
               </div>
+
+              // <div
+              //   className={colorClasses[item.color] + " " + styles.dayItem}
+              //   key={item.day}
+              //   onClick={() => {
+              //     open();
+              //     setSelectdId(item.day);
+              //   }}
+              // >
+              //   {item.day}
+              // </div>
             ))}
 
             {selectedDay && (
