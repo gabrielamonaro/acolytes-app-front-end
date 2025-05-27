@@ -68,10 +68,7 @@
   padding: 0 20px;
   border: none;
   border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -165,4 +162,46 @@ a.secondary {
   .logo {
     filter: invert();
   }
+}
+
+.container {
+  border: 1px solid lightgray;
+  padding: 10px;
+}
+
+.daysOfWeekLabel {
+  text-align: center;
+}
+
+.currentMonthLabel {
+  text-align: center;
+  padding: 12px;
+}
+
+.dayItem {
+  text-align: center;
+  border: 1px solid lightgray;
+}
+.dayItem:hover {
+  cursor: pointer;
+}
+
+.purple {
+  border-left: 4px purple solid;
+}
+
+.green {
+  border-left: 4px green solid;
+}
+
+.white {
+  border-left: 4px white solid;
+}
+
+.black {
+  border-left: 4px black solid;
+}
+
+.red {
+  border-left: 4px red solid;
 }
