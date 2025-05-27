@@ -20,8 +20,8 @@ export const generateFakeData = (): IDaySchedule[] => {
   const massTypes = [
     MassType.LOW,
     MassType.SUNG,
-    MassType.HIGH,
-    MassType.PONTIFICAL,
+    // MassType.HIGH,
+    // MassType.PONTIFICAL,
   ];
 
   const colors = [
