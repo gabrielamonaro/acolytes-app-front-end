@@ -5,12 +5,17 @@ import { format } from "date-fns";
 import { LiturgicalColor } from "./interfaces/LiturgicalColor";
 import { useDisclosure } from "@mantine/hooks";
 import { CalendarModal } from "@/components/Modal";
-import { fakeData } from "@/data/fakeData";
-import { useMemo, useState } from "react";
+import { generateFakeData } from "@/Functions/GenerateFakeData";
+import { useEffect, useMemo, useState } from "react";
+import { IDaySchedule } from "./interfaces/DaySchedule";
 
 export default function Home() {
   const [opened, { open, close }] = useDisclosure(false);
+  const [data, setData] = useState<IDaySchedule[]>([]);
 
+  useEffect(() => {
+    setData(generateFakeData());
+  }, []);
   const monthOpenningWeekDay = 4;
   const emptyValuesArray = Array.from({ length: monthOpenningWeekDay - 1 });
   const daysOfWeekLabel = [
@@ -33,8 +38,8 @@ export default function Home() {
 
   const [selectedId, setSelectdId] = useState<null | number>();
   const selectedDay = useMemo(() => {
-    return fakeData.find((item) => item.day === selectedId);
-  }, [selectedId]);
+    return data.find((item) => item.day === selectedId);
+  }, [data, selectedId]);
 
   return (
     <div className={styles.page}>
@@ -57,7 +62,7 @@ export default function Home() {
             {emptyValuesArray.map((item, index) => (
               <div key={index} />
             ))}
-            {fakeData.map((item) => (
+            {data.map((item) => (
               <div
                 key={item.day}
                 className={colorClasses[item.color] + " " + styles.dayItem}
@@ -74,17 +79,6 @@ export default function Home() {
                   {item.day}
                 </Button>
               </div>
-
-              // <div
-              //   className={colorClasses[item.color] + " " + styles.dayItem}
-              //   key={item.day}
-              //   onClick={() => {
-              //     open();
-              //     setSelectdId(item.day);
-              //   }}
-              // >
-              //   {item.day}
-              // </div>
             ))}
 
             {selectedDay && (
