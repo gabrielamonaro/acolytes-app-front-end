@@ -58,7 +58,6 @@ export const generateFakeData = (): IDaySchedule[] => {
       },
       {
         type: getRandomMassType(),
-        father: "Olivieri Toti",
         acolytes: {
           [AcolytePosition.ACOLYTE1]: getRandomName(),
           [AcolytePosition.ACOLYTE2]: getRandomName(),

@@ -1,3 +1,28 @@
 .disabled:disabled {
   background-color: red;
 }
+
+.section_disabled {
+  display: none;
+}
+
+.rootLabel {
+  margin-left: 12px;
+}
+
+.form {
+  select {
+    width: 100%;
+  }
+  select:disabled {
+    background-color: transparent;
+    color: black !important;
+    font-weight: 400;
+    opacity: 1;
+    cursor: default;
+  }
+}
+
+/* .m_8fb7ebe7:disabled .m_8fb7ebe7[data-disabled] {
+  background-color: transparent;
+} */
