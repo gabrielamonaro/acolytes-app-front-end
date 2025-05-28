@@ -13,12 +13,14 @@ import { CreateUserData, createUserResolver } from "./createUser.zod";
 import { useForm } from "@mantine/form";
 import { useCallback, useEffect, useState } from "react";
 import { UserType } from "../interfaces/UserType";
+import { toast, ToastContainer } from "react-toastify";
 import {
   AcolytePosition,
   AcolytePositionTranslation,
 } from "../interfaces/AcolytePostion";
 
 export default function CreateUserPage() {
+  const notify = () => toast.success("Cadastro de usuário criado com sucesso.");
   const form = useForm({
     mode: "uncontrolled",
     initialValues: {
@@ -35,6 +37,7 @@ export default function CreateUserPage() {
 
   const onSubmit = useCallback((data: CreateUserData) => {
     console.log(data);
+    notify();
   }, []);
 
   const [userType, setUserType] = useState<UserType | null>(null);
@@ -45,9 +48,9 @@ export default function CreateUserPage() {
     }
   }, [userType, form]);
 
-  useEffect(() => {
-    console.log("errors: ", form.errors);
-  }, [form]);
+  // useEffect(() => {
+  //   console.log("errors: ", form.errors);
+  // }, [form]);
 
   return (
     <div className={styles.page}>
@@ -142,6 +145,7 @@ export default function CreateUserPage() {
           <Button type="submit">Criar usuário</Button>
         </form>
       </main>
+      <ToastContainer />
     </div>
   );
 }
