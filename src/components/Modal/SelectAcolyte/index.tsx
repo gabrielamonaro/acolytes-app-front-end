@@ -1,8 +1,6 @@
-"use client";
 import {
   AcolytePosition,
   AcolytePositionTranslation,
-  // AcolytePositionTranslation,
 } from "@/app/interfaces/AcolytePostion";
 import { FaCircle } from "react-icons/fa";
 import styles from "./../modal.module.css";

@@ -2,16 +2,21 @@
 
 import { Anchor, Flex, PasswordInput, PasswordInputProps } from "@mantine/core";
 
-type ForgotPasswordInputProps = PasswordInputProps;
-export function ForgotPasswordInput(props: ForgotPasswordInputProps) {
+interface ForgotPasswordInputProps extends PasswordInputProps {
+  label?: string;
+}
+export function ForgotPasswordInput({
+  label,
+  ...rest
+}: ForgotPasswordInputProps) {
   return (
     <>
       <Flex justify="space-between" direction="column">
         <PasswordInput
           placeholder="Sua senha"
           id="your-password"
-          label="Senha"
-          {...props}
+          label={label || "Senha"}
+          {...rest}
         />
         <Anchor
           href="#"
