@@ -41,7 +41,6 @@ export default function Home() {
     return data.find((item) => item.day === selectedId);
   }, [data, selectedId]);
 
-  console.log("Data: ", data);
   return (
     <div className={styles.page}>
       <main className={styles.main}>

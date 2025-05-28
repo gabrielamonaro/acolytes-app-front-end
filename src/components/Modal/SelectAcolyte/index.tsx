@@ -1,6 +1,7 @@
 "use client";
 import {
   AcolytePosition,
+  AcolytePositionTranslation,
   // AcolytePositionTranslation,
 } from "@/app/interfaces/AcolytePostion";
 import { FaCircle } from "react-icons/fa";
@@ -68,9 +69,25 @@ export function SelectAcolyte({
     [isFilled]
   );
 
+  const leftSection = useMemo(() => {
+    return <span>{`${AcolytePositionTranslation[name]}: `} </span>;
+  }, [name]);
+
   return (
     <Flex align="center" gap="4px">
       {icon}
+      {/* <Select
+        data={acolytes.map((item) => ({ label: item, value: item }))}
+        value={value}
+        onChange={(val) => {
+          if (!val) setIsFilled("red");
+          else setIsFilled("green");
+        }}
+        leftSection={AcolytePositionTranslation[name]}
+        placeholder="Selecione um acólito"
+        disabled={!isEdition}
+      /> */}
+      {leftSection}
       <NativeSelect
         data={[
           ...acolytes.map((item) => ({ label: item, value: item })),
